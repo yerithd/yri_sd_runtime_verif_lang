@@ -1,11 +1,11 @@
 
-### AUTHOR: XAVIER NOUNDOU (yeroth.d at gmail.com).
+### AUTHOR: XAVIER NOUNDOU (yerith.d at gmail.com).
 
 
 COMMERCIAL CASE (Computer-Aided Software Engineering) tool
-to draw, generate text files ([YR_QVGE (https://zenodo.org/record/8045734/)](https://zenodo.org/record/8045734/)).
+to draw, generate text files ([YRI_QVGE (https://zenodo.org/record/8045734/)](https://zenodo.org/record/8045734/)).
 
-![YR_QVGE CASE (Computer-Aided Software Engineering) tool](https://github.com/yerothd/yr_sd_runtime_verif_lang/blob/master/YR_QVGE_screenshot.png?raw=true)
+![YRI_QVGE CASE (Computer-Aided Software Engineering) tool](https://github.com/yerithd/yri_sd_runtime_verif_lang/blob/master/YRI_QVGE_screenshot.png?raw=true)
 
 
 ### MIT SOFTWARE LICENSED
@@ -13,21 +13,21 @@ to draw, generate text files ([YR_QVGE (https://zenodo.org/record/8045734/)](htt
 
 ### HOW TO BUILD THIS PROJECT
 
-Run bash script '**build_yr_sd_runtime_verig_lang.sh**'.
+Run bash script '**build_yri_sd_runtime_verig_lang.sh**'.
 
 
 ### HOW TO GENERATE C++ FILES for 'yr-db-runtime-verif' FROM A SPECIFICATION FILE
 
-[yr-db-runtime-verif: a project for verifying SQL correctness properties of GUI software at runtime](https://github.com/yerothd/yr-db-runtime-verif)
+[yr-db-runtime-verif: a project for verifying SQL correctness properties of GUI software at runtime](https://github.com/yerithd/yr-db-runtime-verif)
 
-./yr_sd_runtime_verif_lang_comp < yr_sd_runtime_verif.sd_mealy
+./yri_sd_runtime_verif_lang_comp < yri_sd_runtime_verif.sd_mealy
 
 
 ### HERE is a sample state diagram mealy machine SPECIFICATION
 
-![yr_test_input_2](test_inputs/yr_test_input_2.png)
+![yri_test_input_2](test_inputs/yri_test_input_2.png)
 
-yr_sd_mealy_automaton_spec yr_MISSING_department<br />
+yri_sd_mealy_automaton_spec yri_MISSING_department<br />
 {<br />
  &nbsp;&nbsp;START_STATE(D):Q0<br />
  &nbsp;&nbsp;&nbsp;&nbsp;-> / 'select.department' -><br />

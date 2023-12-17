@@ -1,0 +1,6 @@
+yri_sd_mealy_automaton_spec yri_test_sd_mealy 
+{
+ START_STATE(d):IN_PRE(v,table.column)
+  ->[in_set_trace('DELETE',STATE(d))]/'select'->
+   FINAL_STATE(e):NOT_IN_POST(v,table.column).
+}

@@ -1,0 +1,9 @@
+yri_sd_mealy_automaton_spec yri_sd_runtime_verif_EXAMPLE_realcase_2
+{
+ START_STATE(c)
+  ->/'DELETE.marchandises.YRI_ASSET'->
+   STATE(d):IN_POST(YRI_ASSET,stocks.nom_departement_produit)
+    ->[in_set_trace('DELETE.departements_produits.YRI_ASSET',STATE(d))]/'INSERT.departements_produits.YRI_ASSET'->
+     ERROR_STATE(e):NOT_IN_POST(YRI_ASSET,departements_produits.nom_departement_produit).
+}
+

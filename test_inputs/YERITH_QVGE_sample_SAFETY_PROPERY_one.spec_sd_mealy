@@ -1,0 +1,7 @@
+yri_sd_mealy_automaton_spec A_YRI_runtime_monitor_SECOND
+{
+ BEGIN_STATE(a):NOT_IN_BEFORE(YRI_ASSET_cat,categories.nom_categorie)
+  ->[in_sql_event_log('DELETE.categories.YRI_ASSET_cat',STATE(a))]/'SELECT.stocks'->
+   ERROR_STATE(e):IN_AFTER(YRI_ASSET_cat,stocks.categorie).
+}
+

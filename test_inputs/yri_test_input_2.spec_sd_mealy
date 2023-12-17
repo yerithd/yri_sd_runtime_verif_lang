@@ -1,0 +1,6 @@
+yri_sd_mealy_automaton_spec yri_test_MISSING_department
+{
+ START_STATE(d):NOT_IN_PRE(YRI_ASSET, departements_produits.nom_departement_produit)
+  -> / 'SELECT.departements_produits'->
+   FINAL_STATE(e):IN_POST(YRI_ASSET, stocks.nom_departement_produit).
+}

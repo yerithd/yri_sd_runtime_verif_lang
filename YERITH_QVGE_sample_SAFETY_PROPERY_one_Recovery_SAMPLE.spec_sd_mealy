@@ -1,0 +1,8 @@
+yri_sd_mealy_automaton_spec YERITH_QVGE_sample_SAFETY_PROPERY_one_Recovery_SAMPLE
+{
+ START_STATE(YR):NOT_IN_PRE(YRI_ASSET_cat,categories.nom_categorie)
+  ->[in_set_trace('DELETE.categories.YRI_ASSET_cat',STATE(YR))]/'SELECT.stocks'->
+   FINAL_STATE_AUTO(E):IN_POST(YRI_ASSET_cat,stocks.categorie)
+		:recovery_sql_query(categories, '').
+}
+

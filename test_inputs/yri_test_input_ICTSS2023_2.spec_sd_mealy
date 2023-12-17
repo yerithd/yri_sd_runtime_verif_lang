@@ -1,0 +1,7 @@
+yri_sd_mealy_automaton_spec yri_sd_runtime_verif_language_EXAMPLE_realcase
+{
+ START_STATE(d):NOT_IN_PRE(YRI_ASSET,departements_produits.nom_departement_produit)
+  ->[in_set_trace('DELETE.departements_produits.YRI_ASSET', STATE(d))]/'SELECT.departements_produits'->
+   FINAL_STATE(e):IN_POST(YRI_ASSET,stocks.nom_departement_produit).
+}
+
