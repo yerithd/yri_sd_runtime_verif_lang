@@ -13,7 +13,7 @@
 #include <QtSql/QSqlError>
 
 
-#include "utils/yr-db-runtime-verif-logger.hpp"
+#include "utils/yri-db-runtime-verif-logger.hpp"
 
 #include "yri_sd_runtime_verif/YRI_CPP_MONITOR.hpp"
 #include "yri_sd_runtime_verif/YRI_CPP_MONITOR_STATE.hpp"
