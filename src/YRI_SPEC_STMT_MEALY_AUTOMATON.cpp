@@ -11,6 +11,11 @@
 #include "yri_sd_runtime_verif/YRI_CPP_MONITOR.hpp"
 
 
+const QString YRI_SPEC_STMT_MEALY_AUTOMATON::COMPILER_yerith_replace_DASH_SIGN_OUTPUT("-");
+		
+const QString YRI_SPEC_STMT_MEALY_AUTOMATON::COMPILER_yerith_replace_UNDERSCORE_SIGN_FROM_DASH_SIGN("_");
+
+
 const QString YRI_SPEC_STMT_MEALY_AUTOMATON::IN_SET_TRACE_ID_TOKEN("in_set_trace");
 
 const QString YRI_SPEC_STMT_MEALY_AUTOMATON::IN_SQL_EVENT_LOG_ID_TOKEN("in_sql_event_log");
@@ -457,6 +462,13 @@ void YRI_SPEC_STMT_MEALY_AUTOMATON::
      QString YRI_SD_MEALY_AUTOMATON_SPEC_name__string =
 			 	QString(YRI_SD_MEALY_AUTOMATON_SPEC_name);
 
+		QDEBUG_STRING_OUTPUT_2("* before YRI_SD_MEALY_AUTOMATON_SPEC_name__string", YRI_SD_MEALY_AUTOMATON_SPEC_name__string);
+
+		YRI_SD_MEALY_AUTOMATON_SPEC_name__string.replace(COMPILER_yerith_replace_DASH_SIGN_OUTPUT, 
+																										 COMPILER_yerith_replace_UNDERSCORE_SIGN_FROM_DASH_SIGN);
+
+		QDEBUG_STRING_OUTPUT_2("* after YRI_SD_MEALY_AUTOMATON_SPEC_name__string", YRI_SD_MEALY_AUTOMATON_SPEC_name__string);
+		
 		_a_monitor_mealy_machine
             ->set_RUNTIME_MONITOR_NAME(YRI_SD_MEALY_AUTOMATON_SPEC_name__string);
 

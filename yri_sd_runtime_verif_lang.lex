@@ -39,6 +39,7 @@ start_state						"START_STATE"
 state									"STATE"
 string								"'"[ \t\n\.?_,()`a-zA-Z0-9]*"'"
 alpha_num							[_a-zA-Z]+[_0-9a-zA-Z]*
+alpha_num_DASH_SIGN		[-_a-zA-Z]+[_0-9a-zA-Z]*
 slash									"/"
 dot										"."
 coma									","
@@ -79,6 +80,7 @@ r_brace								"}"
 {state}									{ yylval.opt_val = new std::string(yytext); return STATE_TOK; }
 {string}								{ yylval.opt_val = new std::string(yytext); return STRING_TOK; }
 {alpha_num}							{ yylval.opt_val = new std::string(yytext); return ALPHA_NUM_TOK; }
+{alpha_num_DASH_SIGN}		{ yylval.opt_val = new std::string(yytext); return ALPHA_NUM_DASH_SIGN_TOK; }
 {slash}									{ yylval.opt_val = new std::string(yytext); return SLASH_TOK; }
 {dot}										{ yylval.opt_val = new std::string(yytext); return DOT_TOK; }
 {coma}									{ yylval.opt_val = new std::string(yytext); return COMA_TOK; }

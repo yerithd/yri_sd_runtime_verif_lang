@@ -117,6 +117,9 @@ class YRI_SPEC_STMT_MEALY_AUTOMATON
 		}
 
 
+		static const QString COMPILER_yerith_replace_DASH_SIGN_OUTPUT;
+		
+		static const QString COMPILER_yerith_replace_UNDERSCORE_SIGN_FROM_DASH_SIGN;
 	
 
 		static const QString IN_SET_TRACE_ID_TOKEN;
