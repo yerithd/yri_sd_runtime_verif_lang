@@ -4,7 +4,7 @@
 
 
 /**
- * @AUTEUR: DR.-ING. DIPL.-INF. XAVIER NOUNDOU
+ * @AUTEUR: Pr. Prof. Dr. Xavier Noundou
  *
  * 		YRI_SPEC_STMT_MEALY_AUTOMATON.hpp
  */
