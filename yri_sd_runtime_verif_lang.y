@@ -27,7 +27,6 @@ YRI_SPEC_STMT_MEALY_AUTOMATON *a_spec_stmt_ROOT;
 %token	<opt_val>	YRI_SD_MEALY_AUTOMATON_SPEC_TOK
 %token	<opt_val>	RIGHT_ARROW_TOK
 %token	<opt_val>	ALPHA_NUM_TOK
-%token	<opt_val>	ALPHA_NUM_DASH_SIGN_TOK
 %token	<opt_val>	LEFT_BRACKET_TOK
 %token	<opt_val>	RIGHT_BRACKET_TOK
 %token	<opt_val>	LEFT_PARENTHESIS_TOK
@@ -91,7 +90,7 @@ YRI_SPEC_STMT_MEALY_AUTOMATON *a_spec_stmt_ROOT;
 %%
 
 input : /* empty */
-			| YRI_SD_MEALY_AUTOMATON_SPEC_TOK ALPHA_NUM_DASH_SIGN_TOK
+			| YRI_SD_MEALY_AUTOMATON_SPEC_TOK ALPHA_NUM_TOK
 					LEFT_BRACE_TOK 
 						mealy_automaton_spec DOT_TOK	
 					RIGHT_BRACE_TOK																																{ a_spec_stmt_ROOT->PROCESS_mealy_automaton_spec($2->c_str()); }
