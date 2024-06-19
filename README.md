@@ -13,7 +13,7 @@ to draw, generate text files ([YRI_QVGE (https://zenodo.org/record/8045734/)](ht
 
 ### HOW TO BUILD THIS PROJECT
 
-Run bash script '**build_yri_sd_runtime_verig_lang.sh**'.
+Run bash script '**build_yri_sd_runtime_verif_lang.sh**'.
 
 
 ### HOW TO GENERATE C++ FILES for 'yr-db-runtime-verif' FROM A SPECIFICATION FILE
