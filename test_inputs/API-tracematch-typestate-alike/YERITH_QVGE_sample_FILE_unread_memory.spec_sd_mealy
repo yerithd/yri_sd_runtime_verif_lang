@@ -1,0 +1,7 @@
+yri_sd_mealy_automaton_spec YERITH_QVGE_sample_SAFETY_PROPERY_one
+{
+ START_STATE(INITIALIZED):IN_PRE(Y, alias_set.X)
+  -> [in_set_trace('INSERT.variable.G', START_STATE(INITIALIZED))] / 'DELETE.variable.G'->
+   FINAL_STATE(INITIALIZED).
+}
+
