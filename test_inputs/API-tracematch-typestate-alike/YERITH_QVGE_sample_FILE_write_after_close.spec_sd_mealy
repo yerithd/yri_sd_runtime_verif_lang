@@ -1,7 +1,7 @@
-yri_sd_mealy_automaton_spec YERITH_QVGE_sample_SAFETY_PROPERY_one
+yri_sd_mealy_automaton_spec YERITH_QVGE_sample_FILE_write_after_close_violation_rule
 {
- START_STATE(CLOSED):IN_PRE(G, alias_set.F)
-  -> [in_sql_event_log('DELETE.file.F', START_STATE(CLOSED))] / 'UPDATE.file.G'->
-   FINAL_STATE(WRITE_AFTER_CLOSE).
+ START_STATE(CLSD):IN_PRE(G, alias_set.F)
+  -> [in_sql_event_log('DELETE.file.F', STATE(CLSD))] / 'UPDATE.file.G'->
+   FINAL_STATE(WRITE_AFTER_CLOSE):IN_POST(G, alias_set.F).
 }
 
