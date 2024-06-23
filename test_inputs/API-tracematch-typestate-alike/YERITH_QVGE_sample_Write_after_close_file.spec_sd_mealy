@@ -1,0 +1,7 @@
+yri_sd_mealy_automaton_spec YERITH_QVGE_sample_Write_after_close_file
+{
+ START_STATE(clsd):IN_PRE(g,is_alias(g,f))
+  ->[in_set_trace('DELETE.file.f',STATE(clsd))]/'UPDATE.file.g'->
+   FINAL_STATE(WRITE_AFTER_CLOSE):IN_POST(g,is_alias(g,f)).
+}
+
