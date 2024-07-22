@@ -1,5 +1,5 @@
 /*
-* @AUTEUR: Pr. Prof. Dr. Xavier Noundou
+* @AUTEUR: Pr.  Prof.  Dr.-Ing. Xavier Noundou
 */
 
 %option noinput nounput nodefault yylineno

@@ -3,7 +3,7 @@
 
 
 /**
- * @AUTEUR: Pr. Prof. Dr. Xavier Noundou
+ * @AUTEUR: Pr.  Prof.  Dr.-Ing. Xavier Noundou
  */
 
 

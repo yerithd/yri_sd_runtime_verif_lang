@@ -1,5 +1,5 @@
 #
-# @AUTEUR: Pr. Prof. Dr. Xavier Noundou
+# @AUTEUR: Pr.  Prof.  Dr.-Ing. Xavier Noundou
 #
 
 # SHOWS THIS Makefile FILE COMMAND STRING IN THE

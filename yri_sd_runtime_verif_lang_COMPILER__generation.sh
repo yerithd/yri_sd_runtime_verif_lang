@@ -1,5 +1,5 @@
 #
-# @AUTEUR: Pr. Prof. Dr. Xavier Noundou
+# @AUTEUR: Pr.  Prof.  Dr.-Ing. Xavier Noundou
 #
 
 USAGE="Usage: $(basename $0) <-i INPUT_FILE> [-d OUTPUT_FOLDER]"
