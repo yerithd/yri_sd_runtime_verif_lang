@@ -1,5 +1,5 @@
 /**
- * @AUTEUR: Pr.  Prof.  Dr.-Ing. Xavier Noundou
+ * @AUTEUR: Pr.  Prof.  Dr.-Ing. Xavier Noumbissi Noundou
  *
  * 		YRI_SPEC_STMT_MEALY_AUTOMATON.cpp
  */

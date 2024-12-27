@@ -1,5 +1,5 @@
 #
-# @AUTEUR: Pr.  Prof.  Dr.-Ing. Xavier Noundou
+# @AUTEUR: Pr.  Prof.  Dr.-Ing. Xavier Noumbissi Noundou
 #
 
 set -x
