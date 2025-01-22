@@ -79,7 +79,7 @@ class YRI_SPEC_STMT_MEALY_AUTOMATON
 		 * STATES: END_STATE_AUTO, FINAL_STATE_AUTO, ERROR_STATE_AUTO
 		 *
 		 * If a token "yri_id" is found in the recovery SQL query
-		 * string, it will bve replaced by:
+		 * string, it will be replaced by:
 		 * "(SELECT id FROM stocks ORDER BY id DESC LIMIT 0, 1)"
 		 */
 		
