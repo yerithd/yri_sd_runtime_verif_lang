@@ -1,0 +1,7 @@
+yri_sd_mealy_automaton_spec YERITH_QVGE_sample_PAPER_extended-version_PROPERY
+{
+ BEGIN_STATE(YRI):NOT_IN_BEFORE(YRI_ASSET,departements_produits.nom_departement_produit)
+  ->[in_sql_event_log('DELETE.departements_produits.YRI_ASSET',STATE(YRI))]/'SELECT.departements_produits'->
+   END_STATE(E):IN_AFTER(YRI_ASSET,stocks.nom_departement_produit).
+}
+
