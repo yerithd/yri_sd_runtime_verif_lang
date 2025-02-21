@@ -1,7 +1,7 @@
 /*
  * YRI_CPP_MONITOR_STATE.hpp
  *
- *      Author: Pr.  Prof.  Dr.-Ing. Xavier Noumbissi Noundou
+ *      Author: Pr.  Prof.  Dr.-Ing. Xavier Noundou
  */
 
 #ifndef _YRI_CPP_MONITOR_STATE_HPP_
@@ -15,6 +15,8 @@
 #include <algorithm>
 
 #include <QtCore/QString>
+
+#include <QtCore/QSet>
 
 #include <QtCore/QMap>
 
@@ -63,19 +65,19 @@ public:
     }
 
 
-    inline virtual ~YRI_CPP_MONITOR_STATE()
+    virtual inline ~YRI_CPP_MONITOR_STATE()
     {
         _state_id = -1;
     }
 
 
-    inline virtual QString get_MONITOR_STATE_NAME()
+    virtual inline QString get_MONITOR_STATE_NAME()
     {
         return get_MONITOR_STATE_STATEPROPERTYVALUE(_MONITOR_STATE_NAME_string_key);
     }
 
 
-    inline virtual void set_MONITOR_STATE_NAME(QString a_monitor_state_name)
+    virtual inline void set_MONITOR_STATE_NAME(QString a_monitor_state_name)
     {
         _statepropertyKEY_TO_statepropertyVALUE
         	.insert(_MONITOR_STATE_NAME_string_key,
@@ -83,31 +85,31 @@ public:
     }
 
 
-    inline virtual YRI_CPP_MONITOR_EDGE *get_AN_incoming_edge()
+    virtual inline YRI_CPP_MONITOR_EDGE *get_AN_incoming_edge()
     {
     	return _AN_INCOMING_EDGE;
     }
 
 
-    inline virtual YRI_CPP_MONITOR_EDGE *get_AN_outgoing_edge()
+    virtual inline YRI_CPP_MONITOR_EDGE *get_AN_outgoing_edge()
     {
     	return _AN_OUTGOING_EDGE;
     }
 
 
-    inline virtual void set_AN_incoming_edge(YRI_CPP_MONITOR_EDGE *AN_INCOMING_EDGE)
+    virtual inline void set_AN_incoming_edge(YRI_CPP_MONITOR_EDGE *AN_INCOMING_EDGE)
     {
     	_AN_INCOMING_EDGE = AN_INCOMING_EDGE;
     }
 
 
-    inline virtual void set_AN_outgoing_edge(YRI_CPP_MONITOR_EDGE *AN_OUTGOING_EDGE)
+    virtual inline void set_AN_outgoing_edge(YRI_CPP_MONITOR_EDGE *AN_OUTGOING_EDGE)
     {
     	_AN_OUTGOING_EDGE = AN_OUTGOING_EDGE;
     }
 
 
-    inline virtual QString GET_IN_STATEPROPERTY_KEY_VALUE(QString AN_inset_state_property_key)
+    virtual inline QString GET_IN_STATEPROPERTY_KEY_VALUE(QString AN_inset_state_property_key)
     {
         return _SET_IN_PRE_STATEPROPERTYKEY_TO_VALUE
         			.value(AN_inset_state_property_key,
@@ -115,21 +117,27 @@ public:
     }
 
 
-    inline virtual QString GET_notIN_STATEPROPERTY_KEY_VALUE(QString a_state_property_key)
+    virtual inline QString GET_notIN_STATEPROPERTY_KEY_VALUE(QString a_state_property_key)
     {
         return _SET_notIN_PRE_STATEPROPERTYKEY_TO_VALUE.value(a_state_property_key,
                                                           	  YRI_CPP_UTILS::EMPTY_STRING);
     }
 
 
-    inline virtual QString GET_db_IN_STATEPROPERTY_KEY_VALUE(QString a_state_property_key)
+    virtual inline bool GET_db_Post_Nop()
+    {
+        return _SET_POST_nop;
+    }
+
+
+    virtual inline QString GET_db_IN_STATEPROPERTY_KEY_VALUE(QString a_state_property_key)
     {
         return _SET_IN_POST_STATEPROPERTYKEY_TO_VALUE.value(a_state_property_key,
                                                             YRI_CPP_UTILS::EMPTY_STRING);
     }
 
 
-    inline virtual QString GET_db_NOT_IN_STATEPROPERTY_KEY_VALUE(QString a_state_property_key)
+    virtual inline QString GET_db_NOT_IN_STATEPROPERTY_KEY_VALUE(QString a_state_property_key)
     {
         return _SET_notIN_POST_STATEPROPERTYKEY_TO_VALUE
         			.value(a_state_property_key,
@@ -145,6 +153,10 @@ public:
     virtual
 	void set_notIN_PRE_STATEPROPERTYKEY__to__VALUE(QString a_stateproperty_KEY,
                                                    QString a_VALUE);
+
+
+    virtual
+	void set_Post_NOP(bool Is_A_POST_no_operation_Dummy_TRUE_value);
 
 
     virtual
@@ -227,20 +239,32 @@ public:
     /**
      * IN_POST(DB_VARIABLE, db_query_TABLE__db_query_COLUMN)
      *
+     * Declared mostly for more than 2 stated STATE Diagram Mealy Machine.
+     * JUST for use as a Dummy POST (in or not_in) post-condition on
+     * a state when no post state-postcondition is not needed !
+     *
+     * REMOVES ANY OTHER state-condition.
+     */
+    void set_POST_CONDITION_Nop(bool Is_A_POST_no_operation_Dummy_TRUE_value);
+
+
+    /**
+     * IN_POST(DB_VARIABLE, db_query_TABLE__db_query_COLUMN)
+     *
      * REMOVES ANY OTHER state-condition.
      */
     void set_POST_CONDITION_IN(QString DB_VARIABLE,
                                QString db_query_TABLE__db_query_COLUMN);
 
 
-    inline virtual QString get_MONITOR_STATE_STATEPROPERTYVALUE(QString a_state_property_key)
+    virtual inline QString get_MONITOR_STATE_STATEPROPERTYVALUE(QString a_state_property_key)
     {
         return _statepropertyKEY_TO_statepropertyVALUE.
                value(a_state_property_key, YRI_CPP_UTILS::EMPTY_STRING);
     }
 
 
-    inline virtual YRI_CPP_MONITOR_TRACE_EVENT *get_MONITOR_TRACE_EVENTS()
+    virtual inline YRI_CPP_MONITOR_TRACE_EVENT *get_MONITOR_TRACE_EVENTS()
     {
         return _MONITOR_STATE_TRACE_EVENTS;
     }
@@ -306,7 +330,7 @@ public:
     }
 
 
-    inline virtual void CLEAR_INCOMING_trace_event_log()
+    virtual inline void CLEAR_INCOMING_trace_event_log()
     {
     	_TRACE.clear();
     }
@@ -316,7 +340,7 @@ public:
     							 bool 				is_start_state);
 
 
-    inline virtual void set_ERROR_STATE(bool is_final_state)
+    virtual inline void set_ERROR_STATE(bool is_final_state)
     {
     	set_FINAL_STATE(is_final_state);
     }
@@ -357,6 +381,8 @@ public:
     QMap <QString, QString> _SET_IN_PRE_STATEPROPERTYKEY_TO_VALUE;
 
     QMap <QString, QString> _SET_notIN_PRE_STATEPROPERTYKEY_TO_VALUE;
+
+    bool _SET_POST_nop;
 
     QMap <QString, QString> _SET_IN_POST_STATEPROPERTYKEY_TO_VALUE;
 

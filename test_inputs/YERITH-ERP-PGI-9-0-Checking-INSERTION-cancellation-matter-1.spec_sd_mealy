@@ -3,7 +3,7 @@ yri_sd_mealy_automaton_spec YERITH-ERP-PGI-9-0-Checking-INSERTION-cancellation-m
  BEGIN_STATE(Within_entrer_window_frame)
   ->/'INSERT.entrer_window_frame'->
    STATE(Pressed_insert_Button):IN_POST_NOP
-    ->/'SELECT.yri_Cancel_On_This_Window_Frame_PAGE'->
+    ->[in_set_trace('INSERT.entrer_window_frame',STATE(Pressed_insert_Button))]/'SELECT.yri_Cancel_On_This_Window_Frame_PAGE'->
      ERROR_STATE(Wrong_cancel_all_EVENT):IN_POST_NOP.
 }
 

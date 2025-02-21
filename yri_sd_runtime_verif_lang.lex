@@ -24,10 +24,12 @@ in_before							"IN_BEFORE"
 in_after							"IN_AFTER"
 in_pre								"IN_PRE"
 in_post								"IN_POST"
+in_post_nop						"IN_POST_NOP" 
 notin_before					"NOT_IN_BEFORE"
 notin_after						"NOT_IN_AFTER"
 notin_pre							"NOT_IN_PRE"
 notin_post						"NOT_IN_POST"
+notin_post_nop				"NOT_IN_POST_NOP"
 end_state_auto				"END_STATE_AUTO"
 end_state							"END_STATE"
 error_state_auto			"ERROR_STATE_AUTO"
@@ -63,10 +65,12 @@ r_brace								"}"
 {in_after}							{ yylval.opt_val = new std::string(yytext); return IN_AFTER_TOK; }
 {in_pre}								{ yylval.opt_val = new std::string(yytext); return IN_PRE_TOK; }
 {in_post}								{ yylval.opt_val = new std::string(yytext); return IN_POST_TOK; }
+{in_post_nop}						{ yylval.opt_val = new std::string(yytext); return IN_POST_NOP_TOK; }
 {notin_before}					{ yylval.opt_val = new std::string(yytext); return NOT_IN_BEFORE_TOK; }
 {notin_after}						{ yylval.opt_val = new std::string(yytext); return NOT_IN_AFTER_TOK; }
 {notin_pre}							{ yylval.opt_val = new std::string(yytext); return NOT_IN_PRE_TOK; }
 {notin_post}						{ yylval.opt_val = new std::string(yytext); return NOT_IN_POST_TOK; }
+{notin_post_nop}				{ yylval.opt_val = new std::string(yytext); return NOT_IN_POST_NOP_TOK; }
 {recovery_sql_query}		{ yylval.opt_val = new std::string(yytext); return RECOVERY_SQL_QUERY_TOK; }
 {end_state_auto}				{ yylval.opt_val = new std::string(yytext); return END_STATE_AUTO_TOK; }
 {end_state}							{ yylval.opt_val = new std::string(yytext); return END_STATE_TOK; }

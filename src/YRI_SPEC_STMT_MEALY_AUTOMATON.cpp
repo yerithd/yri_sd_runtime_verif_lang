@@ -43,6 +43,9 @@ const QString YRI_SPEC_STMT_MEALY_AUTOMATON::IN_POST_ID_TOKEN("IN_POST");
 const QString YRI_SPEC_STMT_MEALY_AUTOMATON::NOT_IN_POST_ID_TOKEN("NOT_IN_POST");
 
 
+const QString YRI_SPEC_STMT_MEALY_AUTOMATON::POST_NOP_ID_TOKEN("POST_NOP");
+
+
 /*
  * ALL TOKEN DEFINED HERE ALIASES TOGETHER TO THE SAME MEANING.
  */
@@ -128,6 +131,18 @@ void YRI_SPEC_STMT_MEALY_AUTOMATON::SET_in_set_trace()
 
 
 void YRI_SPEC_STMT_MEALY_AUTOMATON::
+		process_inside_algebra_set_specification_POST_NOP(const char *IN_PRE_tok__or__IN_POST_tok)
+{
+	YRI_CPP_MONITOR_STATE *_current_state =
+			_a_monitor_mealy_machine->find_yri_monitor_state(_CURRENT_state_name);
+
+	assert (0 != _current_state);
+
+	_current_state->set_POST_CONDITION_Nop(true);
+}
+
+
+void YRI_SPEC_STMT_MEALY_AUTOMATON::
 		process_inside_algebra_set_specification(const char *IN_PRE_tok__or__IN_POST_tok,
 																						 const char *prog_variable,
 																						 const char *db_table,
@@ -164,6 +179,18 @@ void YRI_SPEC_STMT_MEALY_AUTOMATON::
 
 
 void YRI_SPEC_STMT_MEALY_AUTOMATON::
+		process_not_inside_algebra_set_specification_POST_NOP(const char *IN_PRE_tok__or__IN_POST_tok)
+{
+	YRI_CPP_MONITOR_STATE *_current_state =
+			_a_monitor_mealy_machine->find_yri_monitor_state(_CURRENT_state_name);
+
+	assert (0 != _current_state);
+
+	_current_state->set_POST_CONDITION_Nop(true);
+}
+
+
+void YRI_SPEC_STMT_MEALY_AUTOMATON::
 	process_not_inside_algebra_set_specification(const char *notIN_PRE_tok__or__notIN_POST_tok,
 																							 const char *prog_variable,
 																							 const char *db_table,
@@ -195,6 +222,11 @@ void YRI_SPEC_STMT_MEALY_AUTOMATON::
 																				 		   NOTin_pre__OR__NOTin_post))
 	{
 		_current_state->set_POST_CONDITION_notIN(QString(prog_variable), DB_TABLE__db_column);
+	}
+	else if (YRI_CPP_UTILS::isEqualsCaseSensitive(YRI_SPEC_STMT_MEALY_AUTOMATON::POST_NOP_ID_TOKEN,
+																				 		  	NOTin_pre__OR__NOTin_post))
+	{
+		_current_state->set_POST_CONDITION_Nop(true);
 	}
 }
 

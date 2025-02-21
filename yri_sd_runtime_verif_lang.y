@@ -45,10 +45,12 @@ YRI_SPEC_STMT_MEALY_AUTOMATON *a_spec_stmt_ROOT;
 %token	<opt_val>	IN_BEFORE_TOK
 %token	<opt_val>	IN_AFTER_TOK
 %token	<opt_val>	IN_PRE_TOK
+%token	<opt_val>	IN_POST_NOP_TOK
 %token	<opt_val>	IN_POST_TOK
 %token	<opt_val>	NOT_IN_BEFORE_TOK
 %token	<opt_val>	NOT_IN_AFTER_TOK
 %token	<opt_val>	NOT_IN_PRE_TOK
+%token	<opt_val>	NOT_IN_POST_NOP_TOK
 %token	<opt_val>	NOT_IN_POST_TOK
 %token	<opt_val>	RECOVERY_SQL_QUERY_TOK
 %token	<opt_val>	BEGIN_STATE_TOK
@@ -152,7 +154,9 @@ not_in_spec : NOT_IN_BEFORE_TOK 																												{ }
 					  | NOT_IN_PRE_TOK																														{ }
 						| NOT_IN_POST_TOK																														{ }
 						;
-inside_algebra_set_specification : in_spec 
+inside_algebra_set_specification : IN_POST_NOP_TOK																			{a_spec_stmt_ROOT->
+																																														process_inside_algebra_set_specification_POST_NOP($1->c_str()); }
+																 | in_spec 
 																 		LEFT_PARENTHESIS_TOK 
 																 			prog_variable COMA_TOK db_table DOT_TOK db_column 
 																		RIGHT_PARENTHESIS_TOK																{ a_spec_stmt_ROOT->
@@ -161,7 +165,9 @@ inside_algebra_set_specification : in_spec
 																																																																		 $5->c_str(),
 																																																																		 $7->c_str()); }
 																 ;
-not_inside_algebra_set_specification : not_in_spec
+not_inside_algebra_set_specification : NOT_IN_POST_NOP_TOK															{ a_spec_stmt_ROOT->
+																																														process_not_inside_algebra_set_specification_POST_NOP($1->c_str()); }
+																		 | not_in_spec
 																		 		LEFT_PARENTHESIS_TOK 
 																		 			prog_variable COMA_TOK db_table DOT_TOK db_column 
 																				RIGHT_PARENTHESIS_TOK														{a_spec_stmt_ROOT->

@@ -1,7 +1,7 @@
 /*
  * YRI_CPP_MONITOR.hpp
  *
- *      Author: Pr.  Prof.  Dr.-Ing. Xavier Noumbissi Noundou
+ *      Author: Pr.  Prof.  Dr.-Ing. Xavier Noundou
  */
 
 #ifndef _YRI_CPP_MONITOR_HPP_
@@ -138,6 +138,11 @@ public:
     bool CHECK_PRE_CONDITION_IN(QMap<QString, QString> &SET_in_PRE_STATEPROPERTYKEY_TO_VALUE_map);
 
     bool CHECK_post_condition_notIN(QMap<QString, QString> &SET_notIN_POST_STATEPROPERTYKEY_TO_VALUE_map);
+
+    bool CHECK_post_condition_NOP()
+    {
+        return true;
+    }
 
     bool CHECK_post_condition_IN(QMap<QString, QString> &SET_IN_POST_STATEPROPERTYKEY_TO_VALUE_map);
 

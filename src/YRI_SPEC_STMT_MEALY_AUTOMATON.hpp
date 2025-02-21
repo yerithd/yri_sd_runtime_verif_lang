@@ -55,13 +55,18 @@ class YRI_SPEC_STMT_MEALY_AUTOMATON
 
 		/* processing ALGEBRA SET SPECIFICATION methods */
 
+		virtual void process_inside_algebra_set_specification_POST_NOP(const char *IN_PRE_tok__or__IN_POST_tok);
+
 		virtual void process_inside_algebra_set_specification(const char *IN_PRE_tok__or__IN_POST_tok,
 																													const char *prog_variable,
 																												  const char *db_table,
 																													const char *db_column);
 
+		
+		virtual void process_not_inside_algebra_set_specification_POST_NOP(const char *notIN_PRE_tok__or__notIN_POST_tok);
+
 		virtual void process_not_inside_algebra_set_specification(const char *notIN_PRE_tok__or__notIN_POST_tok,
-																														  const char *prog_variable,
+																															const char *prog_variable,
 																												  		const char *db_table,
 																															const char *db_column);
 
@@ -148,7 +153,10 @@ class YRI_SPEC_STMT_MEALY_AUTOMATON
 		
 		static const QString NOT_IN_POST_ID_TOKEN;
 
+		
+		static const QString POST_NOP_ID_TOKEN;
 	
+
 		QMap<QString, YRI_CPP_MONITOR_STATE *> _ALL_STATE_NAME__to__Monitor_State_Instance;
 		
 		QList<YRI_CPP_MONITOR_EDGE *> _all_final_state_LEADING_edges;
